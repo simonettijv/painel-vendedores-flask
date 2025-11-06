@@ -1,0 +1,206 @@
+/* Fonte base e reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    min-height: 100vh;
+    transition: background 0.5s, color 0.5s;
+    overflow-x: hidden;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 10%;
+}
+
+h1 {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    background: linear-gradient(45deg, #fff, #aee6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.theme-toggle {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    border-radius: 50%;
+    font-size: 22px;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.2);
+}
+
+/* Container */
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    margin: 30px auto;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+/* Formulário */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+input[type="text"] {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Botões com brilho */
+.btn-glow {
+    background: linear-gradient(90deg, #2575fc, #6a11cb);
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(37,117,252,0.5);
+}
+
+.btn-glow:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(106,17,203,0.8);
+}
+
+/* Cards de vendedores */
+.vendedor-card {
+    background: rgba(255,255,255,0.2);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    animation: slideUp 0.5s ease;
+}
+
+.vendedor-nome {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.acoes a {
+    text-decoration: none;
+    font-size: 20px;
+    margin-left: 8px;
+    transition: 0.3s;
+}
+
+.btn-edit { color: #00e0ff; }
+.btn-delete { color: #ff5c5c; }
+
+.btn-edit:hover, .btn-delete:hover {
+    transform: scale(1.2);
+}
+
+/* Texto vazio */
+.vazio {
+    color: #eee;
+    text-align: center;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+/* Voltar */
+.voltar {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.voltar:hover {
+    color: #aee6ff;
+}
+
+/* 🌙 Dark mode */
+body.dark {
+    background: linear-gradient(135deg, #0f0f0f, #232526);
+    color: #eee;
+}
+
+body.dark .container {
+    background: rgba(30,30,30,0.6);
+    box-shadow: 0 8px 25px rgba(255,255,255,0.05);
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .form {
+        gap: 10px;
+    }
+
+    .vendedor-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .acoes {
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+
+

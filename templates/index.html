@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Vendedores</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark");
+            localStorage.setItem("modoEscuro", document.body.classList.contains("dark"));
+            document.getElementById("themeIcon").textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+        }
+
+        window.onload = () => {
+            if (localStorage.getItem("modoEscuro") === "true") {
+                document.body.classList.add("dark");
+                document.getElementById("themeIcon").textContent = "☀️";
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>💼 Painel de Vendedores</h1>
+        <button class="theme-toggle" onclick="toggleDarkMode()"><span id="themeIcon">🌙</span></button>
+    </div>
+
+    <div class="container fade-in">
+        <form action="{{ url_for('adicionar') }}" method="POST" class="form">
+            <input type="text" name="nome" placeholder="Digite o nome do vendedor" required>
+            <button type="submit" class="btn-glow">+ Adicionar</button>
+        </form>
+
+        <div class="lista">
+            {% if vendedores %}
+                {% for v in vendedores %}
+                <div class="vendedor-card slide-up">
+                    <span class="vendedor-nome">{{ v }}</span>
+                    <div class="acoes">
+                        <a href="{{ url_for('editar', nome=v) }}" class="btn-edit" title="Editar">✏️</a>
+                        <a href="{{ url_for('remover', nome=v) }}" class="btn-delete" title="Remover">🗑️</a>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p class="vazio">🚫 Nenhum vendedor cadastrado.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
+
+
+
