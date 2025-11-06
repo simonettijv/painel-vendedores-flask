@@ -15,7 +15,8 @@ Conta com **design responsivo**, **modo escuro**, **efeitos animados** e **armaz
 ---
 
 ## 🖥️ Demonstração
-![Preview do Projeto](screenshot.png)
+![Preview do Projeto](<img width="1322" height="603" alt="image" src="https://github.com/user-attachments/assets/2d470127-d1f0-438e-8f74-6f3b83b266ab" />
+)
 
 > Interface moderna com efeito de vidro, botões animados e transições suaves.
 
